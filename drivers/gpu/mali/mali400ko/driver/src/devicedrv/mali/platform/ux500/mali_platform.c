@@ -101,8 +101,8 @@ static u32 boost_working 	= 0;
 static u32 boost_scheduled 	= 0;
 static u32 boost_required 	= 0;
 static u32 boost_delay 		= 0;
-static u32 boost_low 		= 0;
-static u32 boost_high 		= 0;
+static u32 boost_low 		= 2;
+static u32 boost_high 		= 4;
 static u32 boost_upthreshold 	= 230;
 static u32 boost_downthreshold 	= 51;
 //mutex to protect above variables

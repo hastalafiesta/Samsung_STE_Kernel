@@ -53,7 +53,7 @@ static unsigned int min_sampling_rate;
 #define LATENCY_MULTIPLIER			(1000)
 #define MIN_LATENCY_MULTIPLIER			(100)
 #define MICRO_FREQUENCY_MIN_SAMPLE_RATE		(10000)
-#define MICRO_FREQUENCY_UP_THRESHOLD		(90)
+#define MICRO_FREQUENCY_UP_THRESHOLD		(40)
 #define MICRO_FREQUENCY_DOWN_DIFFERENTIAL		(10)
 #define DEF_SAMPLING_DOWN_FACTOR		(1)
 #define MAX_SAMPLING_DOWN_FACTOR		(10)
@@ -147,17 +147,17 @@ static struct dbs_tuners {
 	unsigned int _oc_limit;
 	unsigned int _standby_threshold_freq;
 } dbs_tuners_ins = {
-	.input_boost_freq = 400000,
-	.input_boost_us = 100*1000,
-	.power_optimal_freq = 800000,
-	.high_freq_sampling_up_factor = 2,
+	.input_boost_freq = 800000,
+	.input_boost_us = 500*1000,
+	.power_optimal_freq = 0,
+	.high_freq_sampling_up_factor = 0,
 
 	.up_threshold = DEF_FREQUENCY_UP_THRESHOLD,
 	.down_differential = DEF_DOWN_DIFFERENTIAL,
-	.ignore_nice = 1,
+	.ignore_nice = 0,
 	.io_is_busy = 20*128/100,
 	.standby_delay_factor = 1,
-	.standby_threshold_freq = 100000,
+	.standby_threshold_freq = 0,
 
 	.sampling_rate = 2*HZ/100,
 	.sampling_down_factor = 2,
@@ -168,9 +168,9 @@ static struct dbs_tuners {
 	.standby_sampling_rate = 3*HZ/100,
 	.standby_sampling_up_factor = 5,
 
-	.suspend_sampling_rate = 5*HZ/100,
+	.suspend_sampling_rate = 4*HZ/100,
 	.suspend_sampling_up_factor = 5,
-	.suspend_max_freq = 600000,
+	.suspend_max_freq = 800000,
 };
 
 static struct workqueue_struct *dbs_wq;
